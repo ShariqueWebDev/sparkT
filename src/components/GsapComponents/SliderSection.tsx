@@ -70,6 +70,8 @@ export default function ImageRevealSlider() {
   const mainTitleRef = useRef<HTMLParagraphElement | null>(null);
   const TitleRef = useRef<HTMLParagraphElement | null>(null);
 
+  const TitleSecondaryRef = useRef<HTMLParagraphElement | null>(null);
+
   // Loading states
   const mainLoaded = useRef<boolean[]>(
     new Array(imagesMain.length).fill(false)
@@ -147,7 +149,7 @@ export default function ImageRevealSlider() {
 
     gsap.fromTo(
       el,
-      { opacity: 0, y: 20 },
+      { opacity: 0, y: 50 },
       {
         opacity: 1,
         y: 0,
@@ -167,7 +169,27 @@ export default function ImageRevealSlider() {
 
     gsap.fromTo(
       el,
-      { opacity: 0, y: 20 },
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        ease: "power3.out",
+        onStart: () => {
+          el.innerText = newTitle;
+        },
+      }
+    );
+  };
+  const animateTitleSecondary = (index: number) => {
+    const el = TitleSecondaryRef.current;
+    if (!el) return;
+
+    const newTitle = imagesSecondary[index].title;
+
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 50 },
       {
         opacity: 1,
         y: 0,
@@ -227,6 +249,8 @@ export default function ImageRevealSlider() {
       duration: 1.6,
       ease: "power4.out",
     });
+
+    animateTitleSecondary(idx);
     secondaryIndex.current = idx;
   };
 
@@ -552,7 +576,10 @@ export default function ImageRevealSlider() {
                 )}
               </div>
             </div>
-            <div className="" data-cursor="none">
+            <div
+              className="flex justify-between gap-10 items-center"
+              data-cursor="none"
+            >
               <div className="flex mt-10 gap-2.5">
                 <ActionButton
                   dotColor="#000000"
@@ -585,7 +612,9 @@ export default function ImageRevealSlider() {
                   navigationHandler={goNext}
                 />
               </div>
-              <div className="">{imagesSecondary.title}</div>
+              <p ref={TitleSecondaryRef} className=" font- text-2xl mt-5 ">
+                {imagesSecondary[0].title}
+              </p>
             </div>
           </div>
         </div>

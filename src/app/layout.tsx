@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/HeaderFooter/Header";
 import CustomCursor from "@/components/GsapComponents/CustomCursor";
 import GsapFadeUpOnLoad from "@/components/GsapComponents/FadeupHandlerForSingle";
+import LenisWrapper from "@/components/SmoothScroll/LenisWrapper";
 // import MaskedTextSwap from "@/components/GsapComponents/MaskTextReveal";
 
 const geistSans = Geist({
@@ -42,12 +43,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable}  antialiased overflow-x-hidden`}
       >
-        <CustomCursor />
-        <GsapFadeUpOnLoad />
-        <Header />
+        <LenisWrapper>
+          <CustomCursor />
+          <GsapFadeUpOnLoad />
+          <Header />
 
-        {/* <MaskedTextSwap /> */}
-        {children}
+          {/* <MaskedTextSwap /> */}
+          {children}
+        </LenisWrapper>
       </body>
     </html>
   );
