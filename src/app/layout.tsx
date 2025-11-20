@@ -5,6 +5,7 @@ import Header from "@/components/HeaderFooter/Header";
 import CustomCursor from "@/components/GsapComponents/CustomCursor";
 import GsapFadeUpOnLoad from "@/components/GsapComponents/FadeupHandlerForSingle";
 import LenisWrapper from "@/components/SmoothScroll/LenisWrapper";
+import Footer from "@/components/HeaderFooter/Footer";
 // import MaskedTextSwap from "@/components/GsapComponents/MaskTextReveal";
 
 const geistSans = Geist({
@@ -50,6 +51,7 @@ export default function RootLayout({
 
           {/* <MaskedTextSwap /> */}
           {children}
+          <Footer />
         </LenisWrapper>
       </body>
     </html>

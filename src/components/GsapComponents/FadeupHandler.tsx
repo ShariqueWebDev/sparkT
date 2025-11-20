@@ -2,11 +2,12 @@
 import React, { useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const GsapFadeEffect: React.FC = () => {
-  useLayoutEffect(() => {
+const GsapFadeEffect = () => {
+  useGSAP(() => {
     // Explicitly tell TypeScript that these are HTMLElements
     const elements = gsap.utils.toArray(".fade-up") as HTMLElement[];
 
@@ -16,6 +17,7 @@ const GsapFadeEffect: React.FC = () => {
         opacity: 0,
         duration: 0.5,
         ease: "power3.out",
+        // stagger: 0.15,
         scrollTrigger: {
           trigger: el,
           start: "top 85%",

@@ -327,10 +327,13 @@ export default function ImageRevealSlider() {
   return (
     <ClientWrapper>
       <div className="">
-        <div className="flex items-center  ">
-          <div className=" relative h-[600px] w-[70%] " data-cursor="hover">
+        <div className="flex lg:flex-row flex-col items-center fade-up-elem  ">
+          <div
+            className=" relative lg:h-[600px] h-[350px] lg:w-[70%] w-full "
+            data-cursor="hover"
+          >
             {/* Arrows */}
-            <div className="flex items-center justify-between ">
+            <div className="flex lg:flex-row flex-col lg:items-center justify-between ">
               <div className="flex gap-2 w-fit" data-cursor="none">
                 <ActionButton
                   iconClass="bg-white"
@@ -366,19 +369,25 @@ export default function ImageRevealSlider() {
                 />
               </div>
               <div
-                className="flex justify-between items-center gap-10"
+                className="lg:flex hidden justify-between items-center gap-10 "
                 data-cursor="none"
               >
                 {/* <p className="text-white font-bold">GEN</p> */}
-                <p ref={TitleRef} className="text-white font-bold">
+                <p
+                  ref={TitleRef}
+                  className="text-white lg:font-bold font-medium lg:text-base text-sm"
+                >
                   {imagesMain[0].mainTitle}
                 </p>
-                <p ref={mainTitleRef} className="text-white font-semibold ">
+                <p
+                  ref={mainTitleRef}
+                  className="text-white lg:font-bold font-medium lg:text-base text-sm "
+                >
                   {imagesMain[0].title}
                 </p>
               </div>
             </div>
-            <div className="relative  h-[450px] overflow-hidden bg-black mt-5">
+            <div className="relative  lg:h-[450px] h-[230px] overflow-hidden bg-black mt-5">
               {/* All slides */}
               {imagesMain.map((img, index) => (
                 <div
@@ -418,15 +427,33 @@ export default function ImageRevealSlider() {
                 </div>
               )}
             </div>
+            <div
+              className="lg:hidden justify-between gap-10 mt-3"
+              data-cursor="none"
+            >
+              {/* <p className="text-white font-bold">GEN</p> */}
+              <p
+                ref={TitleRef}
+                className=" lg:font-bold font-medium lg:text-base text-sm"
+              >
+                {imagesMain[0].mainTitle}
+              </p>
+              <p
+                ref={mainTitleRef}
+                className=" lg:font-bold font-medium lg:text-base text-sm "
+              >
+                {imagesMain[0].title}
+              </p>
+            </div>
           </div>
-          <div className="w-[30%]">
-            <div className="flex gap-2 items-center font-light text-white p-10 italic cursor-pointer">
+          <div className="lg:w-[30%] w-full">
+            <div className="lg:flex hidden gap-2 items-center font-light text-white p-10 italic cursor-pointer ">
               <span>
                 <ArrowLeft size={18} />
               </span>
               <span data-cursor="none">Our Work</span>
             </div>
-            <div className="py-16 flex gap-5 items-center justify-end w-full">
+            <div className="py-16 flex gap-5 items-center lg:justify-end justify-center w-full">
               <Instagram size={16} data-cursor="none" />
               <Linkedin size={16} data-cursor="none" />
               <BsWhatsapp size={16} data-cursor="none" />
@@ -470,10 +497,10 @@ export default function ImageRevealSlider() {
             </div>
           </div>
         </div>
-        <div className="flex justify-end">
-          <div className="w-[60%] ">
-            <div className="flex gap-16 justify-end ">
-              <div className="relative max-w-[400px] w-full h-[600px] overflow-hidden bg-black ">
+        <div className="flex lg:justify-end justify-center fade-up-elem">
+          <div className="lg:w-[60%] w-full ">
+            <div className="flex lg:gap-16 gap-5 justify-end ">
+              <div className="relative max-w-[400px] w-full lg:h-[600px] h-[250px] overflow-hidden bg-black ">
                 {/* All slides */}
                 {imagesSecondary.map((img, index) => (
                   <div
@@ -524,7 +551,7 @@ export default function ImageRevealSlider() {
                   </div>
                 )}
               </div>
-              <div className="relative max-w-[400px] w-full h-[600px] overflow-hidden bg-black">
+              <div className="relative max-w-[400px] w-full lg:h-[600px] h-[250px] overflow-hidden bg-black">
                 {/* All slides */}
                 {imagesThird.map((img, index) => (
                   <div
@@ -580,7 +607,7 @@ export default function ImageRevealSlider() {
               className="flex justify-between gap-10 items-center"
               data-cursor="none"
             >
-              <div className="flex mt-10 gap-2.5">
+              <div className="flex lg:mt-10 mt-5 gap-2.5">
                 <ActionButton
                   dotColor="#000000"
                   iconClass="text-white bg-black"
@@ -612,7 +639,10 @@ export default function ImageRevealSlider() {
                   navigationHandler={goNext}
                 />
               </div>
-              <p ref={TitleSecondaryRef} className=" font- text-2xl mt-5 ">
+              <p
+                ref={TitleSecondaryRef}
+                className=" font- lg:text-2xl lg:mt-5  "
+              >
                 {imagesSecondary[0].title}
               </p>
             </div>
